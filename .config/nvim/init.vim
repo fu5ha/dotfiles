@@ -55,7 +55,6 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
-let g:go_textobj_include_function_doc = 1
 
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
 let g:ale_linters = { 'javascript': ['flow', 'standard'] }
@@ -91,7 +90,7 @@ set clipboard=unnamed,unnamedplus
 set expandtab
 set softtabstop=4
 set shiftwidth=4
-au FileType go setlocal sts=2 sw=2
+au FileType go setlocal sts=8 sw=8
 au FileType javascript setlocal sts=2 sw=2
 
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')

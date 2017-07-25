@@ -212,6 +212,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 # Execs
 # # Replaced this feh command with autorotate script
 #exec_always --no-startup-id feh --bg-fill /home/amelie/Pictures/Wallpapers/dva-lewd.jpg
+exec_always --no-startup-id killall bgcarousel; bgcarousel -t 10
 exec firefox
 exec twitter-lite
 exec compton -f
