@@ -1,0 +1,5 @@
+[user]
+	email = gray@grayolson.com
+	name = Gray Olson
+[include]
+    path = .gitconfig.local
