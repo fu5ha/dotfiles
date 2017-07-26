@@ -41,7 +41,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # take screenshot
-bindsym $mod+Shift+p exec gnome-screenshot
+bindsym $mod+Shift+p exec --no-startup-id gnome-screenshot
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
