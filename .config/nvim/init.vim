@@ -9,12 +9,15 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'fatih/vim-go'
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh && :GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+"Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 Plug 'w0rp/ale'
-Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'joshdick/onedark.vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'roxma/vim-paste-easy'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-go', { 'do': 'make' }
@@ -22,7 +25,6 @@ Plug 'zchee/deoplete-go', { 'do': 'make' }
 "" Plug 'Shougo/neosnippet-snippets'
 Plug 'wokalski/autocomplete-flow'
 Plug 'mattn/emmet-vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'dag/vim-fish'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 call plug#end()
@@ -45,7 +47,16 @@ endif
 
 " Colorscheme
 syntax on
+if (has("autocmd") && !has("gui_running"))
+  let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+  autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " No `bg` setting
+end
 colorscheme onedark
+let g:onedark_terminal_italics = 1
+"let g:airline_theme='onedark'
+let g:lightline = {
+  \ 'colorscheme': 'onedark',
+  \ }
 
 " go stuff
 let g:go_highlight_functions = 1
@@ -67,13 +78,21 @@ let g:javascript_plugin_flow = 1
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#sources#_ = ['buffer']
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:autocomplete_flow#insert_paren_after_function = 0
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Close the documentation window when completion is done
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+	function! s:my_cr_function() abort
+	  return deoplete#close_popup() . "\<CR>"
+endfunction
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
@@ -86,11 +105,11 @@ set number
 set incsearch
 set nowrap
 set clipboard=unnamed,unnamedplus
+set mouse=a
 
 set expandtab
 set softtabstop=4
 set shiftwidth=4
-au FileType go setlocal sts=8 sw=8
 au FileType javascript setlocal sts=2 sw=2
 
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
