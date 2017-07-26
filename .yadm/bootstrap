@@ -1,0 +1,56 @@
+#!/bin/bash
+
+install-arch() {
+    sudo pacman -Sy go ruby ruby-dev neovim nodejs npm fish yarn termite alsa-libs
+}
+
+install-fedora() {
+    sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
+    sudo dnf install -y go ruby ruby-devel neovim nodejs fish yarn alsa-lib-devel
+    sudo wget https://copr-be.cloud.fedoraproject.org/results/mkrawiec/i3desktop/fedora-25-x86_64/00464428-termite/termite-12-1.fc25.x86_64.rpm -O $HOME/Downloads/termite.rpm
+    sudo dnf install -y $HOME/Downloads/termite.rpm
+}
+
+install-mac() {
+    if ! command -v brew >/dev/null 2>&1; then
+        echo "Installing homebrew"
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+    brew install go neovim node npm yarn fish
+    brew tap caskroom/cask
+}
+
+install-all() {
+    curl -sSL https://get.oh-my.fish/ | fish
+    gem install neovim
+    npm config set prefix $HOME/.local
+    mkdir $HOME/go
+    export GOPATH=$HOME/go
+    export PATH=$GOPATH/bin:$PATH
+    go get -u github.com/termhn/bgcarousel
+    yarn global add trash-cli
+}
+
+bootstrap-vim() {
+    if command -v nvim >/dev/null 2>&1; then
+        echo "Bootstraping Vim"
+        nvim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+    else
+        echo "neovim not installed, skipping vim bootstrap"
+    fi
+}
+
+if [ "$(uname -s)" = "Darwin" ]; then
+    install-mac
+    install-all
+elif hash pacman 2>/dev/null; then
+    install-arch
+    install-all
+elif hash dnf 2>/dev/null; then
+    install-fedora
+    install-all
+else
+    echo "Unsupported operating system; skipping install"
+fi
+
+bootstrap-vim
