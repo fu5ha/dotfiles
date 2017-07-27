@@ -15,6 +15,11 @@ set -gx PATH $HOME/bin $PATH
 
 # nvim instead of vim
 alias vim "nvim"
+alias v "nvim"
 
 # trash instead of rm
 alias rm "trash"
+
+# sudo vim
+alias svim "sudo -E nvim"
+alias sv "sudo -E nvim"
