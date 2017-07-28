@@ -17,6 +17,8 @@ green = #aec795
 
 [bar/Bar]
 fixed-center = true
+;tray-position= right
+;tray-background = #1c2023
 
 border-size = 20
 border-bottom-size = 0
@@ -27,7 +29,7 @@ height = 3%
 
 offset-x = 5%
 offset-y = 1%
-radius = 0.0
+radius = 4.0
 
 enable-ipc = false
 
@@ -118,12 +120,13 @@ label-visible-font = 4
 label-focused =  %name%
 ;label-focused = %index%
 ;label-focused-background = ${colors.gray}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-unfocused =  %name%
 ;label-unfocused = %index%
 label-unfocused-padding = 1
 ;label-unfocused-background = ${colors.black}
+label-unfocused-foreground = ${colors.gray}
 label-unfocused-underlinde = ${colors.white}
 
 label-urgent =  %name%
@@ -134,7 +137,7 @@ label-urgent-foreground = ${colors.red}
 
 label-visible =  %name%
 ;label-visible = %index%
-label-visible-foreground = ${colors.white}
+label-visible-foreground = ${colors.gray}
 label-visible-padding = 1
 
 

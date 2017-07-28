@@ -2,6 +2,9 @@
 set -gx GOPATH ~/Code/go
 set -gx PATH $GOPATH/bin $PATH
 
+# Rust
+set -gx PATH ~/.cargo/bin $PATH
+
 # Local path
 set -gx PATH ~/.local/bin $PATH
 
@@ -23,3 +26,7 @@ alias rm "trash"
 # sudo vim
 alias svim "sudo -E nvim"
 alias sv "sudo -E nvim"
+
+# source init.fish
+alias fe "nvim ~/.config/omf/init.fish"
+alias fs "source ~/.config/omf/init.fish"

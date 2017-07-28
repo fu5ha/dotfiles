@@ -51,10 +51,16 @@ bindsym $mod+Shift+p exec --no-startup-id gnome-screenshot
 # bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+# bindsym $mod+h focus left
+# bindsym $mod+j focus down
+# bindsym $mod+k focus up
+# bindsym $mod+l focus right
+
+# vim split integration
+bindsym $mod+h exec --no-startup-id "sleep 0.2; i3-vim-python left"
+bindsym $mod+j exec --no-startup-id "sleep 0.2; i3-vim-python down"
+bindsym $mod+k exec --no-startup-id "sleep 0.2; i3-vim-python up"
+bindsym $mod+l exec --no-startup-id "sleep 0.2; i3-vim-python right"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left

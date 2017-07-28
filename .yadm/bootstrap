@@ -6,7 +6,7 @@ install-arch() {
 
 install-fedora() {
     sudo wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo
-    sudo dnf install -y go ruby ruby-devel neovim nodejs fish yarn alsa-lib-devel
+    sudo dnf install -y go ruby ruby-devel neovim nodejs fish yarn alsa-lib-devel libxdo-devel
     sudo wget https://copr-be.cloud.fedoraproject.org/results/mkrawiec/i3desktop/fedora-25-x86_64/00464428-termite/termite-12-1.fc25.x86_64.rpm -O $HOME/Downloads/termite.rpm
     sudo dnf install -y $HOME/Downloads/termite.rpm
 }
@@ -29,6 +29,7 @@ install-all() {
     export PATH=$GOPATH/bin:$PATH
     go get -u github.com/termhn/bgcarousel
     yarn global add trash-cli
+    pip install i3-py
 }
 
 bootstrap-vim() {

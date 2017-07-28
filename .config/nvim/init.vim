@@ -27,6 +27,10 @@ Plug 'wokalski/autocomplete-flow'
 Plug 'mattn/emmet-vim'
 Plug 'dag/vim-fish'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+"Plug 'jwilm/i3-vim-focus', { 'do': 'cd i3-vim-focus && cargo install' }
+Plug 'termhn/i3-vim-python', { 'do': 'ln -s i3-vim-python $HOME/bin/i3-vim-python' }
 call plug#end()
 
 let mapleader = ","
@@ -57,6 +61,27 @@ let g:onedark_terminal_italics = 1
 let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
+
+" Quickly open/reload vim
+nnoremap <leader>ve :vsp ~/.config/nvim/init.vim<CR>  
+nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
+
+" i3 integration
+nnoremap <c-l> :call Focus('right', 'l')<CR>
+nnoremap <c-h> :call Focus('left', 'h')<CR>
+nnoremap <c-k> :call Focus('up', 'k')<CR>
+nnoremap <c-j> :call Focus('down', 'j')<CR>
+
+" Goyo and Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+nnoremap <leader>gy :Goyo<CR>
+let g:goyo_width = 70
+let g:goyo_height = 75
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 
 " go stuff
 let g:go_highlight_functions = 1
@@ -103,9 +128,20 @@ nnoremap <leader>nt :NERDTreeToggle<CR>
 
 set number
 set incsearch
-set nowrap
+
+
+set textwidth=0
+set wrapmargin=0
+set wrap
+set linebreak
+set breakindent
+set breakindentopt=shift:4
+
 set clipboard=unnamed,unnamedplus
 set mouse=a
+
+set splitbelow
+set splitright
 
 set expandtab
 set softtabstop=4
@@ -117,9 +153,3 @@ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
 vnoremap < <gv
 vnoremap > >gv
-
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-h> :wincmd h<CR>
-nmap <silent> <c-l> :wincmd l<CR>
-
