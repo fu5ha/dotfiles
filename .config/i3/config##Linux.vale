@@ -36,6 +36,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
+bindsym $mod+Shift+Return exec termite --name vim-coding
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -43,24 +44,21 @@ bindsym $mod+Shift+q kill
 # take screenshot
 bindsym $mod+Shift+p exec --no-startup-id gnome-screenshot
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
-
 # change focus
 # bindsym $mod+h focus left
 # bindsym $mod+j focus down
 # bindsym $mod+k focus up
 # bindsym $mod+l focus right
-
 # vim split integration
-bindsym $mod+h exec --no-startup-id "sleep 0.2; i3-vim-python left"
-bindsym $mod+j exec --no-startup-id "sleep 0.2; i3-vim-python down"
-bindsym $mod+k exec --no-startup-id "sleep 0.2; i3-vim-python up"
-bindsym $mod+l exec --no-startup-id "sleep 0.2; i3-vim-python right"
+bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
+bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
+bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
+bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"
+
+# copy and paste
+bindsym --release $mod+c exec --no-startup-id "xdo-copy"
+bindsym --release $mod+p exec --no-startup-id "xdo-paste"
+bindsym --release $mod+d exec --no-startup-id "xdo-cut"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -232,4 +230,4 @@ exec_always --no-startup-id killall bgcarousel; bgcarousel --random
 exec --no-startup-id libinput-gestures-setup start
 exec firefox
 exec twitter-lite
-exec --no-startup-id compton -f
+exec --no-startup-id compton -f --backend glx

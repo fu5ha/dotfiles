@@ -29,8 +29,7 @@ Plug 'dag/vim-fish'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-"Plug 'jwilm/i3-vim-focus', { 'do': 'cd i3-vim-focus && cargo install' }
-Plug 'termhn/i3-vim-python', { 'do': 'ln -s i3-vim-python $HOME/bin/i3-vim-python' }
+Plug 'termhn/i3-vim-nav', { 'do': 'bash install.sh' }
 call plug#end()
 
 let mapleader = ","
@@ -71,6 +70,8 @@ nnoremap <c-l> :call Focus('right', 'l')<CR>
 nnoremap <c-h> :call Focus('left', 'h')<CR>
 nnoremap <c-k> :call Focus('up', 'k')<CR>
 nnoremap <c-j> :call Focus('down', 'j')<CR>
+
+nnoremap <leader>w= <c-w>=
 
 " Goyo and Limelight
 autocmd! User GoyoEnter Limelight
@@ -147,6 +148,7 @@ set expandtab
 set softtabstop=4
 set shiftwidth=4
 au FileType javascript setlocal sts=2 sw=2
+au FileType go setlocal sts=8 sw=8
 
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')

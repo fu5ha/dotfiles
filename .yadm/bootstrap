@@ -29,7 +29,6 @@ install-all() {
     export PATH=$GOPATH/bin:$PATH
     go get -u github.com/termhn/bgcarousel
     yarn global add trash-cli
-    pip install i3-py
 }
 
 bootstrap-vim() {
