@@ -1,10 +1,7 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Terminate already running instances
 killall -q bgcarousel
 
-# Wait until the processes have been shut down
-while pgrep -x bgcarousel >/dev/null; do sleep 1; done
-
 # Launch carousel
-bgcarousel --random
+~/Code/go/bin/bgcarousel --random

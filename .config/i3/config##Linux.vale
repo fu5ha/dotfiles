@@ -26,13 +26,11 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec termite
-bindsym $mod+Shift+Return exec termite --name vim-coding
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # take screenshot
-bindsym $mod+Shift+p exec --no-startup-id gnome-screenshot
 
 # Audio
 exec --no-startup-id pulseaudio
@@ -45,13 +43,12 @@ bindsym $mod+F2 exec palemoon
 bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm
-bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id i3-scrot
+bindsym $mod+Shift+p exec --no-startup-id i3-scrot
+bindsym Print exec --no-startup-id i3-scrot -s
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+Ctrl+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -61,10 +58,14 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # bindsym $mod+k focus up
 # bindsym $mod+l focus right
 # vim split integration
-bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
-bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
-bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
-bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"
+bindsym --release $mod+h exec --no-startup-id "~/Code/go/bin/i3-vim-nav h"
+bindsym --release $mod+j exec --no-startup-id "~/Code/go/bin/i3-vim-nav j"
+bindsym --release $mod+k exec --no-startup-id "~/Code/go/bin/i3-vim-nav k"
+bindsym --release $mod+l exec --no-startup-id "~/Code/go/bin/i3-vim-nav l"
+# bindsym --release $mod+h exec --no-startup-id "i3-vim-nav h"
+# bindsym --release $mod+j exec --no-startup-id "i3-vim-nav j"
+# bindsym --release $mod+k exec --no-startup-id "i3-vim-nav k"
+# bindsym --release $mod+l exec --no-startup-id "i3-vim-nav l"
 
 # copy and paste
 bindsym --release $mod+c exec --no-startup-id "xdo-copy"
@@ -284,8 +285,5 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Execs
-exec_always --no-startup-id $HOME/.config/bgcarousel/launch.sh
-exec --no-startup-id libinput-gestures-setup start
-exec firefox
-exec twitter-lite
+exec_always --no-startup-id ~/.config/bgcarousel/launch.sh
 exec --no-startup-id compton -f --backend glx
