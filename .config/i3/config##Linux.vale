@@ -284,9 +284,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Execs
-# # Replaced this feh command with autorotate script
-#exec_always --no-startup-id feh --bg-fill /home/amelie/Pictures/Wallpapers/dva-lewd.jpg
-exec_always --no-startup-id killall bgcarousel && bgcarousel --random
+exec_always --no-startup-id $HOME/.config/bgcarousel/launch.sh
 exec --no-startup-id libinput-gestures-setup start
 exec firefox
 exec twitter-lite
