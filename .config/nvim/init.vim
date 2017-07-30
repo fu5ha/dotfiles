@@ -29,7 +29,7 @@ Plug 'dag/vim-fish'
 Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'termhn/i3-vim-nav', { 'do': 'bash install.sh' }
+Plug 'termhn/i3-vim-nav'
 call plug#end()
 
 let mapleader = ","
