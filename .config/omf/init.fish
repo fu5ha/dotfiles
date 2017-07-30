@@ -4,6 +4,7 @@ set -gx PATH $GOPATH/bin $PATH
 
 # Rust
 set -gx PATH ~/.cargo/bin $PATH
+set -gx RUST_SRC_PATH (rustc --print sysroot)/lib/rustlib/src/rust/src
 
 # Local path
 set -gx PATH ~/.local/bin $PATH
@@ -30,3 +31,5 @@ alias sv "sudo -E nvim"
 # source init.fish
 alias fe "nvim ~/.config/omf/init.fish"
 alias fs "source ~/.config/omf/init.fish"
+alias ve "nvim ~/.config/nvim/init.vim"
+alias ie "nvim ~/.config/i3/config"

@@ -30,6 +30,8 @@ Plug 'wincent/command-t', { 'do': 'cd ruby/command-t/ext/command-t && ruby extco
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'termhn/i3-vim-nav'
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust' " Make sure to install racer and rust source! $ cargo install racer && rustup component add rust-src
 call plug#end()
 
 let mapleader = ","
@@ -61,9 +63,10 @@ let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 
-" Quickly open/reload vim
+" Quickly open/reload vim config
 nnoremap <leader>ve :vsp ~/.config/nvim/init.vim<CR>  
 nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ie :vsp ~/.config/i3/config<CR>
 
 " i3 integration
 nnoremap <c-l> :call Focus('right', 'l')<CR>
@@ -93,27 +96,34 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
+" rust stuff
+let g:rustfmt_autosave = 1
+
+" ale stuff
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
 let g:ale_linters = { 'javascript': ['flow', 'standard'] }
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 
+" javascript stuff
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
 
-" deoplete
+" deoplete stuff
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#sources#_ = ['buffer']
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#rust#racer_binary = $HOME.'/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = $RUST_SRC_PATH
 let g:autocomplete_flow#insert_paren_after_function = 0
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 " use tab to backward cycle
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 " Close the documentation window when completion is done
-" autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 	function! s:my_cr_function() abort
@@ -137,6 +147,8 @@ set wrap
 set linebreak
 set breakindent
 set breakindentopt=shift:4
+au FileType markdown setlocal breakindentopt=0
+au FileType text setlocal breakindentopt=0
 
 set clipboard=unnamed,unnamedplus
 set mouse=a

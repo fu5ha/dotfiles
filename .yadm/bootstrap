@@ -1,7 +1,7 @@
 #!/bin/bash
 
 install-arch() {
-    sudo pacman -Sy go ruby ruby-dev neovim nodejs npm fish yarn termite alsa-libs
+    sudo pacman -Sy --noconfirm go ruby neovim nodejs npm fish yarn termite alsa-libs
 }
 
 install-fedora() {
@@ -29,6 +29,9 @@ install-all() {
     export PATH=$GOPATH/bin:$PATH
     go get -u github.com/termhn/bgcarousel
     yarn global add trash-cli
+    cargo install racer
+    rustup component add rust-src
+    export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 }
 
 bootstrap-vim() {
