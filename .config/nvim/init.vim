@@ -63,17 +63,30 @@ let g:lightline = {
   \ 'colorscheme': 'onedark',
   \ }
 
-" Quickly open/reload vim config
-nnoremap <leader>ve :vsp ~/.config/nvim/init.vim<CR>  
-nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>ie :vsp ~/.config/i3/config<CR>
+" Tab navigation
+nnoremap J gT
+nnoremap K gt
 
-" i3 integration
+" terminal mode to normal mode
+tnoremap <Esc> <C-\><C-n>
+
+" Quickly open/reload vim config
+nnoremap <leader>ve :tabe ~/.config/nvim/init.vim<CR>  
+nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>ie :tabe ~/.config/i3/config<CR>
+
+" i3 normal mode integration
 nnoremap <c-l> :call Focus('right', 'l')<CR>
 nnoremap <c-h> :call Focus('left', 'h')<CR>
 nnoremap <c-k> :call Focus('up', 'k')<CR>
 nnoremap <c-j> :call Focus('down', 'j')<CR>
+" i3 terminal mode integration
+tnoremap <c-l> :call Focus('right', 'l')<CR>
+tnoremap <c-h> :call Focus('left', 'h')<CR>
+tnoremap <c-k> :call Focus('up', 'k')<CR>
+tnoremap <c-j> :call Focus('down', 'j')<CR>
 
+" equalize window size
 nnoremap <leader>w= <c-w>=
 
 " Goyo and Limelight
@@ -95,9 +108,13 @@ let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 
 " rust stuff
 let g:rustfmt_autosave = 1
+let g:deoplete#sources#rust#disable_keymap=1
+let g:deoplete#sources#rust#racer_binary = $HOME.'/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path = $RUST_SRC_PATH
 
 " ale stuff
 let g:ale_fixers = { 'javascript': ['prettier_standard'] }
@@ -114,9 +131,6 @@ let g:javascript_plugin_flow = 1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#sources#_ = ['buffer']
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#rust#racer_binary = $HOME.'/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path = $RUST_SRC_PATH
 let g:autocomplete_flow#insert_paren_after_function = 0
 " use tab to forward cycle
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
