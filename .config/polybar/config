@@ -20,7 +20,7 @@ fixed-center = true
 ;tray-position= right
 ;tray-background = #1c2023
 
-border-size = 15
+border-size = 10
 border-bottom-size = 0
 border-color = $00000000
 
@@ -43,7 +43,7 @@ module-margin-left = 0
 ;modules-center = mpd
 ;modules-left = cpu memory filesystem
 
-modules-right = volume wlan battery menu0
+modules-right = volume wlan battery
 modules-center = date
 modules-left = i3
 
@@ -274,8 +274,25 @@ format-background = ${colors.bg}
 ;format-foreground = ${colors.fg}
 format-padding = 2
 
-
 [module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume>  <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%%
+label-muted =   muted
+label-muted-foreground = #aaa
+format-volume-padding = 1
+format-volume-underline = ${colors.green}
+format-muted-padding = 1
+format-muted-underline = ${colors.red}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-headphones-0 = 
+
+[module/volume-bar]
 type = internal/volume
 
 format-volume = <bar-volume>
@@ -304,38 +321,73 @@ bar-volume-empty = 
 bar-volume-empty-font = 4
 bar-volume-empty-foreground = ${colors.gray}
 
-
 [module/battery]
 type = internal/battery
+
+full-at = 99
+
 battery = BAT0
-adapter = AC
-full-at = 98
+adapter = AC0
+
+poll-interval = 5
 
 format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage%%
+label-discharging = %percentage%%
+label-full = %percentage%%
 format-charging-underline = ${colors.green}
 format-charging-padding = 1
-
-format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.yellow}
 format-discharging-padding = 1
-
-format-full =   <label-full>
 format-full-underline = ${self.format-charging-underline}
 format-full-overline = ${self.format-charging-underline}
-format-full-padding = 1
 
 ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.white}
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.white}
-animation-charging-framerate = 500
+animation-charging-framerate = 750
+
+; [module/battery]
+; type = internal/battery
+; battery = BAT0
+; adapter = AC
+; full-at = 98
+
+; format-charging = <animation-charging> <label-charging>
+; format-charging-underline = ${colors.green}
+; format-charging-padding = 1
+
+; format-discharging = <ramp-capacity> <label-discharging>
+; format-discharging-underline = ${colors.yellow}
+; format-discharging-padding = 1
+
+; format-full =   <label-full>
+; format-full-underline = ${self.format-charging-underline}
+; format-full-overline = ${self.format-charging-underline}
+; format-full-padding = 1
+
+; ramp-capacity-0 = 
+; ramp-capacity-1 = 
+; ramp-capacity-2 = 
+; ramp-capacity-foreground = ${colors.white}
+
+; animation-charging-0 = 
+; animation-charging-1 = 
+; animation-charging-2 = 
+; animation-charging-3 = 
+; animation-charging-4 = 
+; animation-charging-foreground = ${colors.white}
+; animation-charging-framerate = 500
 
 
 [module/temperature]
@@ -359,6 +411,32 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = #55
 
+[module/powermenu]
+type = custom/menu
+
+label-open =   
+;label-open-background = #dd0000
+;label-open-foreground = #fff
+label-close = cancel
+;label-close-background = #dd0000
+;label-close-foreground = #fff
+label-open-padding = 2
+label-close-padding = 1
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+menu-0-0-padding = 3
+menu-0-1-padding = 3
+
+menu-1-0 = reboot?  
+menu-1-0-exec = sudo reboot
+menu-1-0-padding = 3
+
+menu-2-0 = power off?  
+menu-2-0-exec = sudo poweroff
+menu-2-0-padding = 3
 
 [module/menu0]
 type = custom/menu

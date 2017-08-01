@@ -19,7 +19,7 @@ font pango:Inconsolata 18
 # Gaps
 for_window [class="^.*"] border pixel 0
 gaps inner 5
-gaps outer 10
+gaps outer 5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -185,6 +185,7 @@ for_window [class="Thus"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Synergy"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus

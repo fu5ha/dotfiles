@@ -20,39 +20,62 @@ rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 rofi.separator-style:                solidofi.color-urgent: #728ca5, #f3f4f5, #728ca5, #dc322f, #f3f4f51
 
 ! color scheme
-! special
-*.foreground:   #c7ccd1
-*.background:   #1c2023
-*.cursorColor:  #c7ccd1
+! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
+!          using https://github.com/richo/itermcolors2xdefaults
+*.background:   #1e1f28
+*.foreground:   #ebece6
+*.cursorColor:   #e4e4e4
+*.color0:   #000
+*.color1:   #fb4245
+*.color2:   #50fa7b
+*.color3:   #f0fa8b
+*.color4:   #49b9fe
+*.color5:   #fb4cb3
+*.color6:   #8be9fd
+*.color7:   #ededec
+*.color8:   #555555
+*.color9:   #fb4245
+*.color10:   #50fa7b
+*.color11:   #f0fa8b
+*.color12:   #49b9fe
+*.color13:   #fb4cb3
+*.color14:   #8be9fd
+*.color15:   #ededec
 
-! black
-*.color0:       #1c2023
-*.color8:       #747c84
+! ! Original
+! ! special
+! *.foreground:   #c7ccd1
+! *.background:   #1c2023
+! *.cursorColor:  #c7ccd1
 
-! red
-*.color1:       #c7ae95
-*.color9:       #c7ae95
+! ! black
+! *.color0:       #1c2023
+! *.color8:       #747c84
 
-! green
-*.color2:       #95c7ae
-*.color10:      #95c7ae
+! ! red
+! *.color1:       #c7ae95
+! *.color9:       #c7ae95
 
-! yellow
-*.color3:       #aec795
-*.color11:      #aec795
+! ! green
+! *.color2:       #95c7ae
+! *.color10:      #95c7ae
 
-! blue
-*.color4:       #ae95c7
-*.color12:      #ae95c7
+! ! yellow
+! *.color3:       #aec795
+! *.color11:      #aec795
 
-! magenta
-*.color5:       #c795ae
-*.color13:      #c795ae
+! ! blue
+! *.color4:       #ae95c7
+! *.color12:      #ae95c7
 
-! cyan
-*.color6:       #95aec7
-*.color14:      #95aec7
+! ! magenta
+! *.color5:       #c795ae
+! *.color13:      #c795ae
 
-! white
-*.color7:       #c7ccd1
-*.color15:      #f3f4f5
+! ! cyan
+! *.color6:       #95aec7
+! *.color14:      #95aec7
+
+! ! white
+! *.color7:       #c7ccd1
+! *.color15:      #f3f4f5

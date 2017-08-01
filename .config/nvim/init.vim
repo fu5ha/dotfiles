@@ -75,6 +75,9 @@ nnoremap <leader>ve :tabe ~/.config/nvim/init.vim<CR>
 nnoremap <leader>vs :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>ie :tabe ~/.config/i3/config<CR>
 
+" tab shortcuts
+nnoremap <leader>tn :tabnew<CR>
+
 " i3 normal mode integration
 nnoremap <c-l> :call Focus('right', 'l')<CR>
 nnoremap <c-h> :call Focus('left', 'h')<CR>
@@ -161,8 +164,8 @@ set wrap
 set linebreak
 set breakindent
 set breakindentopt=shift:4
-au FileType markdown setlocal breakindentopt=0
-au FileType text setlocal breakindentopt=0
+au FileType markdown setlocal breakindentopt=shift:0
+au FileType text setlocal breakindentopt=shift:0
 
 set clipboard=unnamed,unnamedplus
 set mouse=a
