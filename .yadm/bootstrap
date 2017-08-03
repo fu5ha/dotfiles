@@ -1,7 +1,8 @@
 #!/bin/bash
 
 install-arch() {
-    sudo pacman -Sy go ruby neovim nodejs npm fish yarn termite
+    sudo pacman -Sy go ruby neovim nodejs npm fish yarn termite rofi xorg-xrandr feh ttf-inconsolata
+    yaourt -S --noconfirm ruby-neovim python-neovim ttf-font-awesome
 }
 
 install-fedora() {
@@ -21,19 +22,20 @@ install-mac() {
 }
 
 install-all() {
-    curl -sSL https://get.oh-my.fish/ | fish
     gem install neovim
     npm config set prefix $HOME/.local
     mkdir -p ~/Code/go/bin
     export GOPATH=$HOME/Code/go
     export PATH=$GOPATH/bin:$PATH
     go get -u github.com/termhn/bgcarousel
-    get get -u github.com/termhn/i3-vim-nav
+    go get -u github.com/termhn/i3-vim-nav
     yarn global add trash-cli
     curl https://sh.rustup.rs -sSf | sh
     cargo install racer
     rustup component add rust-src
     export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
+    curl -sSL https://get.oh-my.fish/ | fish
+    sudo chsh $USER -s /usr/bin/fish
 }
 
 bootstrap-vim() {
