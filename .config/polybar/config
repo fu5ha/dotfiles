@@ -2,9 +2,9 @@
 
 [colors]
 
-fg = ${xrdb:color7}
+fg = #f3f4f5
 modfg = ${xrdb:color4}
-bg = ${xrdb:color0}
+bg = #2f343f
 
 white = #d1d1d1
 gray = #585858
@@ -16,22 +16,22 @@ green = #aec795
 
 
 [bar/Bar]
+monitor = ${env:MONITOR}
 fixed-center = true
-;tray-position= right
-;tray-background = #1c2023
+; tray-position= right
+; tray-background = ${colors.bg}
 
-border-size = 10
-border-bottom-size = 0
-border-color = $00000000
+; border-size = 10
+; border-bottom-size = 0
+; border-color = $00000000
 
 width = 100%
 height = 3%
 
 offset-x = 5%
 offset-y = 1%
-radius = 4.0
 
-enable-ipc = false
+enable-ipc = true
 
 padding-left = 1
 padding-right = 0
@@ -43,22 +43,22 @@ module-margin-left = 0
 ;modules-center = mpd
 ;modules-left = cpu memory filesystem
 
-modules-right = volume wlan battery
+modules-right = volume eth menu0
 modules-center = date
 modules-left = i3
 
-background = ${xrdb:color0}
-foreground = ${xrdb:color7}
+background = ${colors.bg}
+foreground = ${colors.fg}
 
-overline-size = 2
-overline-color = ${colors.white}
+overline-size = 4
+overline-color = ${colors.bg}
 underline-size = 4
 underline-color = ${colors.modfg}
 
-font-0 = Inconsolata:size=16;0
-font-1 = FontAwesome:size=18;0
-font-2 = Inconsolata:weight=bold:size=16;0
-font-3 = FontAwesome:size=18;0
+font-0 = Inconsolata:size=14;0
+font-1 = FontAwesome:size=14;0
+font-2 = Inconsolata:weight=bold:size=14;0
+font-3 = FontAwesome:size=14;0
 
 
 [module/xwindow]
@@ -107,6 +107,7 @@ label-empty-padding = 2
 
 
 [module/i3]
+pin-workspaces = true
 type = internal/i3
 format = <label-mode> <label-state>
 index-sort = true
@@ -249,7 +250,7 @@ label-disconnected-foreground = ${colors.gray}
 
 [module/eth]
 type = internal/network
-interface = enp2s0
+interface = eno1
 interval = 3.0
 
 format-connected-padding = 1
@@ -261,6 +262,7 @@ format-disconnected-underline = ${colors.gray}
 label-connected =  
 label-disconnected = 
 label-disconnected-foreground = ${colors.gray}
+label-disconnected-underline = ${colors.red}
 
 
 [module/date]
@@ -270,6 +272,7 @@ date =   %b/%d/%y %I:%M %p
 interval = 5
 
 format-underline = ${colors.modfg}
+format-overline = ${colors.bg}
 format-background = ${colors.bg}
 ;format-foreground = ${colors.fg}
 format-padding = 2

@@ -311,36 +311,36 @@ bindsym $mod+space exec rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -o
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	status_command i3status
-	position top
+# bar {
+#         status_command i3status
+#         position top
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-	bindsym button4 nop
-	bindsym button5 nop
-	font xft:Noto Sans 12
-	strip_workspace_numbers yes
+# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# #	tray_output primary
+# #	tray_output eDP1
+#         bindsym button4 nop
+#         bindsym button5 nop
+#         font xft:Noto Sans 12
+#         strip_workspace_numbers yes
 
-	colors {
-#       background $transparent
-        background $bg-color
-        statusline $text-color
-        separator  $inactive-text-color
+#         colors {
+# #       background $transparent
+#         background $bg-color
+#         statusline $text-color
+#         separator  $inactive-text-color
 
-#                                  border  backgr. text
-        focused_workspace       $bg-color  $bg-color        $text-color
-        active_workspace        $bg-color  $bg-color        $text-color
-        inactive_workspace      $bg-color  $bg-color        $inactive-text-color
-        urgent_workspace        $bg-color  $urgent-bg-color $text-color
-    }
-}
+# #                                  border  backgr. text
+#         focused_workspace       $bg-color  $bg-color        $text-color
+#         active_workspace        $bg-color  $bg-color        $text-color
+#         inactive_workspace      $bg-color  $bg-color        $inactive-text-color
+#         urgent_workspace        $bg-color  $urgent-bg-color $text-color
+#     }
+# }
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
 
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # multimedia keys
 bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume 0 +10%"

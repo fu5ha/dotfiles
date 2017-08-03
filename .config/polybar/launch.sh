@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 # Terminate already running bar instances
 killall -q polybar
@@ -7,4 +7,6 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar
-polybar Bar
+for i in $(polybar -m | awk -F: '{print $1}'); do
+    MONITOR=$i polybar Bar & 
+done
