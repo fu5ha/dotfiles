@@ -2,7 +2,7 @@
 
 install-arch() {
     sudo pacman -Sy go ruby neovim nodejs npm fish yarn termite rofi xorg-xrandr feh ttf-inconsolata
-    yaourt -S --noconfirm ruby-neovim python-neovim ttf-font-awesome polybar-git
+    yaourt -S --noconfirm ruby-neovim python-neovim ttf-font-awesome polybar-git exa-git
 }
 
 install-fedora() {

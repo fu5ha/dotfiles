@@ -37,7 +37,6 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 # Audio
 exec --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications
@@ -133,7 +132,7 @@ bindsym $mod+minus scratchpad show
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: "
-set $workspace4 "4: "
+set $workspace4 "4"
 set $workspace5 "5"
 set $workspace6 "6"
 set $workspace7 "7"
@@ -145,10 +144,11 @@ set $workspace10 "10: "
 # Assign workspaces to monitors
 set $main_monitor DP-4
 set $right_monitor DVI-I-1
+set $left_monitor HDMI-0
 workspace $workspace1 output $main_monitor
-workspace $workspace2 output $main_monitor
-workspace $workspace3 output $main_monitor
-workspace $workspace4 output $main_monitor
+workspace $workspace2 output $left_monitor
+workspace $workspace3 output $left_monitor
+workspace $workspace4 output $left_monitor
 workspace $workspace5 output $main_monitor
 workspace $workspace6 output $right_monitor
 workspace $workspace7 output $right_monitor
@@ -180,10 +180,24 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# move current workspace to monitor
+mode "mode_monitors" {
+    bindsym h move workspace to output left
+    bindsym l move workspace to output right
+    bindsym Shift+h move workspace to output $left_monitor
+    bindsym Shift+l move workspace to output $right_monitor
+    bindsym Shift+j move workspace to output $main_monitor
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "mode_monitors"
+
 # Workspace assignments
-assign [class="Spotify"] $workspace10
-assign [class="twitter-lite"] $workspace8
-assign [class="Cutegram"] $workspace9
+assign [class="Spotify"] $workspace3
+assign [class="twitter-lite"] $workspace4
+assign [class="Telegram"] $workspace2
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -338,7 +352,7 @@ bindsym $mod+space exec rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -o
 # }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -352,6 +366,6 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # Execs
-exec --no-startup-id xrandr --output DP-4 --auto --output DVI-I-1 --auto --panning 2592x1620+2560+250 --scale 1.35x1.35 --right-of DP-4
+exec --no-startup-id xrandr --output DP-4 --auto --panning 2560x1440+2560+0 --output DVI-I-1 --auto --panning 2304x1440+5120+0 --scale 1.2x1.2 --right-of DP-4 --output HDMI-0 --auto --panning 2559x1440+0+0 --scale 1.333x1.333 --left-of DP-4
 exec_always --no-startup-id ~/.config/bgcarousel/launch.sh
 exec --no-startup-id compton -b --backend glx
