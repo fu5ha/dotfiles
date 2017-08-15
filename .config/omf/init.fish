@@ -33,3 +33,5 @@ alias fe "nvim ~/.config/omf/init.fish"
 alias fs "source ~/.config/omf/init.fish"
 alias ve "nvim ~/.config/nvim/init.vim"
 alias ie "nvim ~/.config/i3/config"
+
+alias asuup "nmcli conn up asu --ask"
