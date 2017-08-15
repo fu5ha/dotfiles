@@ -24,6 +24,9 @@ alias v "nvim"
 # trash instead of rm
 alias rm "trash"
 
+# exa instead of ls
+alias ls "exa"
+
 # sudo vim
 alias svim "sudo -E nvim"
 alias sv "sudo -E nvim"
