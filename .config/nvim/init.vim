@@ -5,6 +5,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree'

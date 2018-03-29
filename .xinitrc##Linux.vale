@@ -1,3 +1,4 @@
 xrdb -merge ~/.Xresources
 xmodmap ~/.Xmodmap
-exec i3
+#exec i3
+exec awesome

@@ -1,4 +1,10 @@
 Xft.dpi: 170
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
 ! Copyright: 2017 leofa
@@ -18,6 +24,8 @@ rofi.color-active:                   argb:2c1d1f21, #65acff, argb:e44b5160, #449
 rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 ! "Separator style (none, dash, solid)" Set from: XResources
 rofi.separator-style:                solidofi.color-urgent: #728ca5, #f3f4f5, #728ca5, #dc322f, #f3f4f51
+rofi.run-command: fish -c '{cmd}'
+rofi.run-list-command: 'fish -c functions'
 
 ! color scheme
 ! Snazzy - Converted from https://github.com/sindresorhus/iterm2-snazzy
