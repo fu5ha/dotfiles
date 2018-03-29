@@ -38,3 +38,5 @@ alias ve "nvim ~/.config/nvim/init.vim"
 alias ie "nvim ~/.config/i3/config"
 
 alias asuup "nmcli conn up asu --ask"
+
+alias sd "spotifyd --no-daemon"
