@@ -62,9 +62,9 @@ colorscheme wal
 "colorscheme onedark
 "let g:onedark_terminal_italics = 1
 "let g:airline_theme='termscheme'
-"let g:lightline = {
-  "\ 'colorscheme': 'onedark',
-  "\ }
+let g:lightline = {
+  \ 'colorscheme': 'darcula',
+  \ }
 
 " Tab navigation
 nnoremap J gT
