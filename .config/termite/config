@@ -31,47 +31,85 @@ filter_unmatched_urls = true
 # emit escape sequences for extra modified keys
 #modify_other_keys = false
 
-
 [colors]
 
 # special
-foreground      = #c7ccd1
-foreground_bold = #c7ccd1
-cursor          = #c7ccd1
-#background      = #1c2023
-background = rgba(28, 32, 35, 0.95)
+foreground      = #d8acc4
+foreground_bold = #d8acc4
+cursor          = #d8acc4
+background      = #171621
 
 # black
-color0  = #1c2023
-color8  = #747c84
+color0  = #171621
+color8  = #977889
 
 # red
-color1  = #c7ae95
-color9  = #c7ae95
+color1  = #6a335f
+color9  = #6a335f
 
 # green
-color2  = #95c7ae
-color10 = #95c7ae
+color2  = #645770
+color10 = #645770
 
 # yellow
-color3  = #aec795
-color11 = #aec795
+color3  = #87557a
+color11 = #87557a
 
 # blue
-color4  = #ae95c7
-color12 = #ae95c7
+color4  = #6c6e85
+color12 = #6c6e85
 
 # magenta
-color5  = #c795ae
-color13 = #c795ae
+color5  = #5964c2
+color13 = #5964c2
 
 # cyan
-color6  = #95aec7
-color14 = #95aec7
+color6  = #9a6785
+color14 = #9a6785
 
 # white
-color7  = #c7ccd1
-color15 = #f3f4f5
+color7  = #d8acc4
+color15 = #d8acc4
+color130 = #79728e
+
+### OLD COLORS
+# special
+#foreground      = #c7ccd1
+#foreground_bold = #c7ccd1
+#cursor          = #c7ccd1
+#background      = #1c2023
+#background = rgba(28, 32, 35, 0.95)
+# black
+#color0  = #1c2023
+#color8  = #747c84
+
+# red
+#color1  = #c7ae95
+#color9  = #c7ae95
+
+# green
+#color2  = #95c7ae
+#color10 = #95c7ae
+
+# yellow
+#color3  = #aec795
+#color11 = #aec795
+
+# blue
+#color4  = #ae95c7
+#color12 = #ae95c7
+
+# magenta
+#color5  = #c795ae
+#color13 = #c795ae
+
+# cyan
+#color6  = #95aec7
+#color14 = #95aec7
+
+# white
+#color7  = #c7ccd1
+#color15 = #f3f4f5
 
 [hints]
 #font = Menlo 16

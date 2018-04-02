@@ -483,14 +483,15 @@ globalkeys = my_table.join(
     --]]
     --dmenu
     awful.key({ modkey }, "p", function ()
-        awful.spawn(string.format("dmenu_run -i -fn 'Monospace' -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
+        awful.spawn(string.format("dmenu_run -i -nb '%s' -nf '%s' -sb '%s' -sf '%s'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 		end,
         {description = "show dmenu", group = "launcher"}),
     --
     -- Rofi
     awful.key({ modkey }, "space", function ()
-        awful.spawn("rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -opacity \"85\" -font \"Inconsolata 32\"")
+        --awful.spawn("rofi -show run -lines 4 -eh 2 -width 100 -padding 800 -opacity \"85\" -font \"Tamzen 32\"")
+        awful.spawn("rofi -show run")
 		end,
         {description = "show rofi", group = "launcher"}),
     --

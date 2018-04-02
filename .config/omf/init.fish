@@ -40,3 +40,6 @@ alias ie "nvim ~/.config/i3/config"
 alias asuup "nmcli conn up asu --ask"
 
 alias sd "spotifyd --no-daemon"
+
+# Setup wal colors
+cat ~/.cache/wal/sequences
